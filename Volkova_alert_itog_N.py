@@ -1,7 +1,7 @@
 import telegram
 
 from airflow import DAG
-from airflow.operators.python_operator import PythonOperator # Так как мы пишет такси в питоне
+from airflow.operators.python_operator import PythonOperator
 from airflow.operators.python import get_current_context 
 from airflow.decorators import dag, task
 
