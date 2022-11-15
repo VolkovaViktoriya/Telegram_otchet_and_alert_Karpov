@@ -138,7 +138,7 @@ def aaa_volk_report_all():
         return df
 
     @task()
-    def transform_report_send(df_cube_feed):
+    def report_send(df_cube_feed):
         # Функция формирует и отправляет в телеграмм 
         # первую часть отчета в соответствии с заданием 2
          
@@ -177,7 +177,7 @@ def aaa_volk_report_all():
                    'Показатель CTR', 'CTR_plot.png', chat_id, bot)
     
     @task()
-    def transform_report_send_p2(df_cube_feed):
+    def report_send_p2(df_cube_feed):
         # Функция формирует и отправляет в телеграмм основные KPI и графики 
         # по сервису отправки сообщений для второй части отчета в соответствии с заданием 2
         
@@ -277,7 +277,7 @@ def aaa_volk_report_all():
         return df
 
     @task()
-    def transform_report_send_p3(df_cube_feed):
+    def report_send_p3(df_cube_feed):
         # Функция формирует и отправляет в телеграмм графики долей совокупно  
         # по ленте новостей и сервису оправки сообщений, в различных срезах,
         # для второй части отчета в соответствии с заданием 2
@@ -340,13 +340,13 @@ def aaa_volk_report_all():
         
 
     df_cube_feed = extract_actions_gr()
-    transform_report_send(df_cube_feed)
+    report_send(df_cube_feed)
     
     df_cube_mess = extract_mess_gr()
-    transform_report_send_p2(df_cube_mess)
+    report_send_p2(df_cube_mess)
        
     df_cube_all = extract_actions_all()
-    transform_report_send_p3(df_cube_all)
+    report_send_p3(df_cube_all)
     
     
 aaa_volk_report_v2 = aaa_volk_report_all()
